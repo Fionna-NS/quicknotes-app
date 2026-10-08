@@ -7,10 +7,17 @@ const noteCount = document.querySelector("#note-count");
 const errorMessage = document.querySelector("#error-message");
 const clearAllBtn = document.querySelector("#clear-all-btn");
 
-const STORAGE_KEY = "quicknotes";
+const STORAGE_KEY = "quicknotes"; 
 const MAX_LENGTH = 200;
 
-let notes = loadNotes();
+let notes = []; // Declare once at top level
+
+function init() {
+    notes = loadNotes(); // Assign inside init without 'let'
+    // Render notes or setup event listeners here...
+}
+
+init(); // Call init
 
 /* ---------- Task 5: storage ---------- */
 function loadNotes() {
